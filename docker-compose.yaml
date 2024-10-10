@@ -1,0 +1,14 @@
+services:
+  sipexer:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        SIPEXER_TAG: ${SIPEXER_TAG:-main}
+    container_name: sipexer
+    network_mode: host
+    restart: "on-failure"
+    stdin_open: true
+    tty: true
+    cap_add:
+      - SYS_NICE
