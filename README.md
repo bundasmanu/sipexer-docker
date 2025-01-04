@@ -52,6 +52,8 @@ sipexer -laddr 127.0.0.1:55060 udp:127.0.0.1:5060
 
 ```sh
 docker run -it --name sipexer sipexer:latest sipexer udp 127.0.0.1 5060
+
+docker run -it --name sipexer sipexer:latest sipexer -invite -vl 3 -cb -co -com -sd -su udp:172.25.0.3:5060
 ```
 
 ## How to use Sipexer
