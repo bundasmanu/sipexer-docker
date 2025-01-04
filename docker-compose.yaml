@@ -6,9 +6,18 @@ services:
       args:
         SIPEXER_TAG: ${SIPEXER_TAG:-main}
     container_name: sipexer
-    network_mode: host
     restart: "on-failure"
-    stdin_open: true
-    tty: true
+    networks:
+      common-network:
+        ipv4_address: 172.25.0.20  # Assign a specific IP
     cap_add:
+      - NET_ADMIN
+      - SYS_TIME
       - SYS_NICE
+    stdin_open: true
+    privileged: true
+    tty: true
+
+networks:
+  common-network:
+    external: true
